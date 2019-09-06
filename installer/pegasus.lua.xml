@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jonchki-artifact version="1.0">
+	<info group="com.github.EvandroLG"
+	      module="pegasus.lua"
+	      artifact="pegasus.lua"
+	      version="${PROJECT_VERSION}"
+	      vcs-id="${PROJECT_VERSION_VCS}">
+		<license name="MIT"/>
+		<author name="Evandro Leopoldino Gonçalves" url="https://github.com/EvandroLG/pegasus.lua" />
+		<description>
+			Pegasus.lua is a http server to work with web applications written in Lua language.
+		</description>
+	</info>
+	<dependencies>
+		<dependency group="org.lua" module="lua" artifact="lua" version="5.4"/>
+		<dependency group="org.bitbucket.leafstorm" module="lua-mimetypes" artifact="lua-mimetypes" version="1.0"/>
+		<dependency group="com.github.diegonehab" module="luasocket" artifact="lua5.4-luasocket" version="3.0"/>
+	</dependencies>
+	<dependencies>
+		<dependency group="org.lua" module="lua" artifact="lua" version="5.1"/>
+		<dependency group="org.bitbucket.leafstorm" module="lua-mimetypes" artifact="lua-mimetypes" version="1.0"/>
+		<dependency group="com.github.diegonehab" module="luasocket" artifact="lua5.1-luasocket" version="3.0"/>
+	</dependencies>
+</jonchki-artifact>
