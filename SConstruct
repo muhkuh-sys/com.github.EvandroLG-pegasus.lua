@@ -62,7 +62,7 @@ tArcList = atEnv.DEFAULT.ArchiveList('zip')
 tArcList.AddFiles('',
                     'installer/install.lua')
 
-tArcList.AddFiles('lua/',
+tArcList.AddFiles('lua/pegasus',
                   os.path.join(strDepackPath, 'src', 'pegasus', 'compress.lua'),
                   os.path.join(strDepackPath, 'src', 'pegasus', 'file.lua'),
                   os.path.join(strDepackPath, 'src', 'pegasus', 'handler.lua'),
