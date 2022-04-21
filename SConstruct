@@ -36,7 +36,7 @@ import tarfile
 #
 # Depack the source archive.
 #
-tSrcArchive = tarfile.open('pegasus.lua-0.9.4.tar.gz', 'r')
+tSrcArchive = tarfile.open('pegasus.lua-0.9.6.tar.gz', 'r')
 tSrcArchive.extractall('targets/depack')
 tSrcArchive.close()
 strDepackPath = 'targets/depack/pegasus.lua-0.9.4/'
@@ -64,7 +64,6 @@ tArcList.AddFiles('',
 
 tArcList.AddFiles('lua/pegasus',
                   os.path.join(strDepackPath, 'src', 'pegasus', 'compress.lua'),
-                  os.path.join(strDepackPath, 'src', 'pegasus', 'file.lua'),
                   os.path.join(strDepackPath, 'src', 'pegasus', 'handler.lua'),
                   os.path.join(strDepackPath, 'src', 'pegasus', 'init.lua'),
                   os.path.join(strDepackPath, 'src', 'pegasus', 'request.lua'),
