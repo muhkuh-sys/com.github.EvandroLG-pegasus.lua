@@ -6,3 +6,6 @@
 
 # Ignore all backup files.
 *~
+
+# Ignore all compiled Python files.
+*.pyc
