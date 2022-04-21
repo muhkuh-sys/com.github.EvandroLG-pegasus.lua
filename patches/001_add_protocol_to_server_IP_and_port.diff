@@ -1,0 +1,12 @@
+diff -uNr pegasus.lua-0.9.6/src/pegasus/init.lua pegasus.lua-0.9.6_patched/src/pegasus/init.lua
+--- pegasus.lua-0.9.6/src/pegasus/init.lua	2020-09-16 21:21:40.000000000 +0200
++++ pegasus.lua-0.9.6_patched/src/pegasus/init.lua	2022-04-21 14:27:10.668438973 +0200
+@@ -21,7 +21,7 @@
+   local handler = Handler:new(callback, self.location, self.plugins)
+   local server = assert(socket.bind(self.host, self.port))
+   local ip, port = server:getsockname()
+-  print('Pegasus is up on ' .. ip .. ":".. port)
++  print('Pegasus is up on http://' .. ip .. ":".. port)
+ 
+   while 1 do
+     local client, errmsg = server:accept()

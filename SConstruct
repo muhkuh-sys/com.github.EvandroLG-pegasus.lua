@@ -29,6 +29,7 @@ SConscript('mbs/SConscript')
 Import('atEnv')
 
 import os.path
+import patch
 import tarfile
 
 
@@ -39,7 +40,35 @@ import tarfile
 tSrcArchive = tarfile.open('pegasus.lua-0.9.6.tar.gz', 'r')
 tSrcArchive.extractall('targets/depack')
 tSrcArchive.close()
-strDepackPath = 'targets/depack/pegasus.lua-0.9.4/'
+strDepackPath = 'targets/depack/pegasus.lua-0.9.6/'
+
+#----------------------------------------------------------------------------
+#
+# Apply patches.
+#
+strPatchFolder = 'patches'
+uiStrip = 1
+
+# Collect all ".diff" files from the patch folder.
+astrPatches = []
+for strDirname, astrDirnames, astrFilenames in os.walk(strPatchFolder):
+    for strFilename in astrFilenames:
+        strDummy, strExt = os.path.splitext(strFilename)
+        if strExt == '.diff':
+            strAbsFilename = os.path.join(strDirname, strFilename)
+            astrPatches.append(strAbsFilename)
+
+# Sort the patches alphabetically.
+astrSortedPatches = sorted(astrPatches)
+for strPatch in astrSortedPatches:
+    print('Apply patch "%s"...' % strPatch)
+
+    # Apply the patches.
+    tPatch = patch.fromfile(strPatch)
+    tPatch.diffstat()
+    tResult = tPatch.apply(uiStrip, root=strDepackPath)
+    if tResult is not True:
+        raise Exception('Failed to apply patch "%s"!' % strPatch)
 
 #----------------------------------------------------------------------------
 #
